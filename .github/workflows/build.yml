@@ -9,30 +9,11 @@ on:
     branches:
       - main
     tags-ignore:
-      - "frontend-v*"
       - "v*"
 
 jobs:
-  build_frontend:
-    name: Build frontend
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "yarn"
-          cache-dependency-path: "**/yarn.lock"
-      - name: Build assets
-        shell: bash
-        run: |
-          make static
-
-  build_plugin:
-    needs: build_frontend
-    name: Build plugin ${{ matrix.platform.os_name }}
+  build_api:
+    name: Build api ${{ matrix.platform.os_name }}
     runs-on: ${{ matrix.platform.os }}
     strategy:
       matrix:
