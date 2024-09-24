@@ -71,3 +71,11 @@ jobs:
       - name: Push to crate.io
         run: |
           cargo publish --no-verify
+  package_plugin:
+    name: Package plugin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
