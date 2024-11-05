@@ -1,11 +1,7 @@
+use actix_cloud::chrono;
+use actix_cloud::macros::{entity_behavior, entity_id, entity_timestamp};
 use serde::Serialize;
-use skynet_api::{
-    actix_cloud::{
-        self,
-        macros::{entity_behavior, entity_id, entity_timestamp},
-    },
-    sea_orm::{self, prelude::*},
-};
+use skynet_api::sea_orm::{self, prelude::*};
 
 use crate::HyUuid;
 

@@ -1,16 +1,14 @@
+use actix_cloud::{async_trait, tokio::sync::mpsc::UnboundedSender, utils};
 use derivative::Derivative;
 use ecies::SecretKey;
 use entity::agents;
 use enum_as_inner::EnumAsInner;
 use message::Data;
+use parking_lot::RwLock;
 use serde::Serialize;
 use serde_repr::{Deserialize_repr, Serialize_repr};
-use skynet_api::{
-    actix_cloud::utils, async_trait, parking_lot::RwLock, sea_orm::DatabaseTransaction, uuid,
-    HyUuid, Result, Skynet,
-};
+use skynet_api::{sea_orm::DatabaseTransaction, uuid, HyUuid, Result, Skynet};
 use std::{collections::HashMap, net::SocketAddr, sync::Arc};
-use tokio::sync::mpsc::UnboundedSender;
 
 pub use ecies;
 pub use prost;
